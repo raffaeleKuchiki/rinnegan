@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>page</class>
+ <widget class="QWidget" name="page">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="icon">
+          <iconset>
+           <normaloff>../ico/back.png</normaloff>../ico/back.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="icon">
+          <iconset>
+           <normaloff>../ico/forward.png</normaloff>../ico/forward.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../ico/loading.png</normaloff>../ico/loading.png</iconset>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="icon">
+          <iconset>
+           <normaloff>../ico/stop.png</normaloff>../ico/stop.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="icon">
+          <iconset>
+           <normaloff>../ico/home.png</normaloff>../ico/home.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QWebView" name="qwebview" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>qwebview</header>
+   <slots>
+    <signal>loadProgress(int)</signal>
+    <signal>titleChanged(QString)</signal>
+    <signal>iconChanged()</signal>
+    <signal>loadFinished(bool)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>qwebview</sender>
+   <signal>loadProgress(int)</signal>
+   <receiver>page</receiver>
+   <slot>viewLoading()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>325</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewReload()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>45</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewBack()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>19</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewForward()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>307</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewHome()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qwebview</sender>
+   <signal>titleChanged(QString)</signal>
+   <receiver>page</receiver>
+   <slot>viewTitle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qwebview</sender>
+   <signal>iconChanged()</signal>
+   <receiver>page</receiver>
+   <slot>viewIcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>viewLoading()</slot>
+  <slot>viewReload()</slot>
+  <slot>viewBack()</slot>
+  <slot>viewForward()</slot>
+  <slot>viewStop()</slot>
+  <slot>viewHome()</slot>
+  <slot>viewTitle()</slot>
+  <slot>viewIcon()</slot>
+ </slots>
+</ui>
