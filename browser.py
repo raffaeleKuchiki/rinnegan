@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import sys
@@ -20,6 +18,7 @@ class Browser(QMainWindow,Ui_MainWindow):
     self.tabWidget.setCurrentIndex(self.tabWidget.count()-1)
     if self.tabWidget.count()>1:
       self.tabWidget.setTabsClosable(True)
+    self.tabWindowIndex()
       
   def tabClose(self,index):
     widget = self.tabWidget.widget(index)
@@ -27,16 +26,16 @@ class Browser(QMainWindow,Ui_MainWindow):
     self.tabWidget.removeTab(index)
     if self.tabWidget.count()<=1:
       self.tabWidget.setTabsClosable(False)
+    self.tabWindowIndex()
       
-  def tabSelection(self,index):
-    widget = self.tabWidget.widget(index)
-    self.tabWidget.setTabText(index,widget.qwebview.title())
-    self.tabWidget.setTabIcon(index,widget.qwebview.icon())
+  def tabWindowIndex(self):
+    count = self.tabWidget.count()
+    for x in range(0,count):
+      widget = self.tabWidget.widget(x)
+      widget.index = x
       
-  def tabTitle(self,title):
-    index = self.tabWidget.currentIndex()
+  def tabTitle(self,title,index):
     self.tabWidget.setTabText(index,QString(title))
     
-  def tabIcon(self,icon):
-    index = self.tabWidget.currentIndex()
+  def tabIcon(self,icon,index):
     self.tabWidget.setTabIcon(index,QIcon(icon))

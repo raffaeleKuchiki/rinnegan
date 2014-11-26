@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.QtWebKit import *
@@ -11,6 +9,7 @@ class View(QWidget,Ui_page):
   def __init__(self,parent):
     super(View,self).__init__()
     self.parent = parent
+    self.index = 0
     self.setupUi(self)
     self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
     QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
@@ -37,7 +36,7 @@ class View(QWidget,Ui_page):
     self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
     
   def viewTitle(self,title):
-    self.parent.tabTitle(title)
+    self.parent.tabTitle(title,self.index)
     
   def viewIcon(self):
-    self.parent.tabIcon(self.qwebview.icon())
+    self.parent.tabIcon(self.qwebview.icon(),self.index)
