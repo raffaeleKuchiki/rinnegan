@@ -8,11 +8,14 @@ from page import *
 class View(QWidget,Ui_page):
   def __init__(self,parent):
     super(View,self).__init__()
+    #to call tab window function
     self.parent = parent
+    #number of tab of the current webview
     self.index = 0
     self.setupUi(self)
     self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
     QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
+    #for icon connection
     QWebSettings.setIconDatabasePath('data/')
  
   def viewLoading(self,value):
@@ -40,3 +43,10 @@ class View(QWidget,Ui_page):
     
   def viewIcon(self):
     self.parent.tabIcon(self.qwebview.icon(),self.index)
+    
+  def viewUrl(self,url):
+   self.lineEdit.setText(url.toString())
+   
+  def viewGo(self):
+    url = self.lineEdit.text()
+    self.qwebview.setUrl(QUrl(url))
