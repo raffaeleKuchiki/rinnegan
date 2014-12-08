@@ -22,7 +22,7 @@
         <widget class="QPushButton" name="pushButton_2">
          <property name="icon">
           <iconset>
-           <normaloff>../ico/back.png</normaloff>../ico/back.png</iconset>
+           <normaloff>ico/back.png</normaloff>ico/back.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -33,7 +33,7 @@
         <widget class="QPushButton" name="pushButton_3">
          <property name="icon">
           <iconset>
-           <normaloff>../ico/forward.png</normaloff>../ico/forward.png</iconset>
+           <normaloff>ico/forward.png</normaloff>ico/forward.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -47,7 +47,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../ico/loading.png</normaloff>../ico/loading.png</iconset>
+           <normaloff>ico/loading.png</normaloff>ico/loading.png</iconset>
          </property>
          <property name="autoDefault">
           <bool>false</bool>
@@ -71,7 +71,7 @@
         <widget class="QPushButton" name="pushButton_4">
          <property name="icon">
           <iconset>
-           <normaloff>../ico/stop.png</normaloff>../ico/stop.png</iconset>
+           <normaloff>ico/stop.png</normaloff>ico/stop.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -82,7 +82,7 @@
         <widget class="QPushButton" name="pushButton_5">
          <property name="icon">
           <iconset>
-           <normaloff>../ico/home.png</normaloff>../ico/home.png</iconset>
+           <normaloff>ico/home.png</normaloff>ico/home.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -111,6 +111,7 @@
     <signal>titleChanged(QString)</signal>
     <signal>iconChanged()</signal>
     <signal>loadFinished(bool)</signal>
+    <signal>urlChanged(QUrl)</signal>
    </slots>
   </customwidget>
  </customwidgets>
@@ -244,6 +245,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>qwebview</sender>
+   <signal>urlChanged(QUrl)</signal>
+   <receiver>page</receiver>
+   <slot>viewUrl()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>448</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>page</receiver>
+   <slot>viewGo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>viewLoading()</slot>
@@ -254,5 +287,7 @@
   <slot>viewHome()</slot>
   <slot>viewTitle()</slot>
   <slot>viewIcon()</slot>
+  <slot>viewUrl()</slot>
+  <slot>viewGo()</slot>
  </slots>
 </ui>

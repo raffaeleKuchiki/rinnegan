@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'page.ui'
 #
-# Created: Wed Nov 26 22:29:58 2014
+# Created: Mon Dec  8 13:08:44 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -93,6 +93,8 @@ class Ui_page(object):
         QtCore.QObject.connect(self.pushButton_5, QtCore.SIGNAL(_fromUtf8("clicked()")), page.viewHome)
         QtCore.QObject.connect(self.qwebview, QtCore.SIGNAL(_fromUtf8("titleChanged(QString)")), page.viewTitle)
         QtCore.QObject.connect(self.qwebview, QtCore.SIGNAL(_fromUtf8("iconChanged()")), page.viewIcon)
+        QtCore.QObject.connect(self.qwebview, QtCore.SIGNAL(_fromUtf8("urlChanged(QUrl)")), page.viewUrl)
+        QtCore.QObject.connect(self.lineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), page.viewGo)
         QtCore.QMetaObject.connectSlotsByName(page)
 
     def retranslateUi(self, page):
