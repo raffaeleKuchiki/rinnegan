@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'window.ui'
 #
-# Created: Mon Dec  8 13:08:45 2014
+# Created: Thu Dec 18 20:11:26 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -51,17 +51,22 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menuBar)
         self.actionNew_tab = QtGui.QAction(MainWindow)
         self.actionNew_tab.setObjectName(_fromUtf8("actionNew_tab"))
+        self.actionChronos = QtGui.QAction(MainWindow)
+        self.actionChronos.setObjectName(_fromUtf8("actionChronos"))
         self.menuFile.addAction(self.actionNew_tab)
+        self.menuFile.addAction(self.actionChronos)
         self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(-1)
         QtCore.QObject.connect(self.tabWidget, QtCore.SIGNAL(_fromUtf8("tabCloseRequested(int)")), MainWindow.tabClose)
-        QtCore.QObject.connect(self.menuBar, QtCore.SIGNAL(_fromUtf8("triggered(QAction*)")), MainWindow.newTab)
+        QtCore.QObject.connect(self.actionNew_tab, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.newTab)
+        QtCore.QObject.connect(self.actionChronos, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.chrono)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Rinnegan", None))
         self.menuFile.setTitle(_translate("MainWindow", "file", None))
         self.actionNew_tab.setText(_translate("MainWindow", "new tab", None))
+        self.actionChronos.setText(_translate("MainWindow", "chronos", None))
 

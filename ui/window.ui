@@ -57,12 +57,18 @@
      <string>file</string>
     </property>
     <addaction name="actionNew_tab"/>
+    <addaction name="actionChronos"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <action name="actionNew_tab">
    <property name="text">
     <string>new tab</string>
+   </property>
+  </action>
+  <action name="actionChronos">
+   <property name="text">
+    <string>chronos</string>
    </property>
   </action>
  </widget>
@@ -85,14 +91,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>menuBar</sender>
-   <signal>triggered(QAction*)</signal>
+   <sender>actionNew_tab</sender>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>newTab()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>20</x>
-     <y>9</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -100,11 +106,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionChronos</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>chrono()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newTab()</slot>
   <slot>tabClose()</slot>
-  <slot>plusTab()</slot>
   <slot>tabSelection()</slot>
+  <slot>chrono()</slot>
  </slots>
 </ui>
