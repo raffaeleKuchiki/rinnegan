@@ -4,6 +4,7 @@ import sys
 sys.path.append('ui/')
 from window import *
 from view import *
+from chrono import *
 
 class Browser(QMainWindow,Ui_MainWindow):
   def __init__(self):
@@ -39,3 +40,8 @@ class Browser(QMainWindow,Ui_MainWindow):
     
   def tabIcon(self,icon,index):
     self.tabWidget.setTabIcon(index,QIcon(icon))
+    
+  def chrono(self):
+    self.dialog = Chrono()
+    self.dialog.show()
+    self.dialog.isVisible()
