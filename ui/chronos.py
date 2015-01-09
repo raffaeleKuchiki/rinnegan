@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'chronos.ui'
 #
-# Created: Thu Dec 18 21:10:10 2014
+# Created: Fri Jan  9 16:32:24 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -32,10 +32,24 @@ class Ui_chronos(object):
         chronos.setWindowIcon(icon)
         self.gridLayout = QtGui.QGridLayout(chronos)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.pushButton = QtGui.QPushButton(chronos)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1)
+        self.horizontalLayout.addWidget(self.pushButton)
+        self.pushButton_2 = QtGui.QPushButton(chronos)
+        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+        self.horizontalLayout.addWidget(self.pushButton_2)
+        self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
         self.tableWidget = QtGui.QTableWidget(chronos)
+        self.tableWidget.setAutoFillBackground(True)
+        self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.tableWidget.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setDragDropOverwriteMode(False)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableWidget.setWordWrap(False)
+        self.tableWidget.setCornerButtonEnabled(False)
         self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setRowCount(0)
@@ -43,15 +57,19 @@ class Ui_chronos(object):
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtGui.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(20)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
-        self.gridLayout.addWidget(self.tableWidget, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.tableWidget, 0, 0, 1, 1)
 
         self.retranslateUi(chronos)
+        QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), chronos.chrono_clearHistory)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), chronos.chrono_open)
         QtCore.QMetaObject.connectSlotsByName(chronos)
 
     def retranslateUi(self, chronos):
         chronos.setWindowTitle(_translate("chronos", "Chronos", None))
         self.pushButton.setText(_translate("chronos", "Open", None))
+        self.pushButton_2.setText(_translate("chronos", "clear history", None))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("chronos", "ico", None))
         item = self.tableWidget.horizontalHeaderItem(1)

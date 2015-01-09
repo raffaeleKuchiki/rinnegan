@@ -14,8 +14,8 @@ class Browser(QMainWindow,Ui_MainWindow):
     self.show()
     self.tabWidget.setTabsClosable(False)
     
-  def newTab(self):
-    self.tabWidget.addTab(View(self),QString(""))
+  def newTab(self,url=""):
+    self.tabWidget.addTab(View(self,url),QString(""))
     self.tabWidget.setCurrentIndex(self.tabWidget.count()-1)
     if self.tabWidget.count()>1:
       self.tabWidget.setTabsClosable(True)
@@ -42,6 +42,6 @@ class Browser(QMainWindow,Ui_MainWindow):
     self.tabWidget.setTabIcon(index,QIcon(icon))
     
   def chrono(self):
-    self.dialog = Chrono()
+    self.dialog = Chrono(self)
     self.dialog.show()
     self.dialog.isVisible()

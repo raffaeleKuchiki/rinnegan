@@ -6,14 +6,17 @@ sys.path.append('ui/')
 from page import * 
 
 class View(QWidget,Ui_page):
-  def __init__(self,parent):
+  def __init__(self,parent,url):
     super(View,self).__init__()
     #to call tab window function
     self.parent = parent
     #number of tab of the current webview
     self.index = 0
     self.setupUi(self)
-    self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
+    if url=="":
+    	self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
+    else:
+	self.qwebview.setUrl(QUrl(url))
     QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
     #for icon connection
     QWebSettings.setIconDatabasePath('data/')
