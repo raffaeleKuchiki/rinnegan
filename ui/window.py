@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'window.ui'
 #
-# Created: Thu Dec 18 20:11:26 2014
+# Created: Sun Jan 11 21:27:31 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -53,8 +53,11 @@ class Ui_MainWindow(object):
         self.actionNew_tab.setObjectName(_fromUtf8("actionNew_tab"))
         self.actionChronos = QtGui.QAction(MainWindow)
         self.actionChronos.setObjectName(_fromUtf8("actionChronos"))
+        self.actionBookmarks = QtGui.QAction(MainWindow)
+        self.actionBookmarks.setObjectName(_fromUtf8("actionBookmarks"))
         self.menuFile.addAction(self.actionNew_tab)
         self.menuFile.addAction(self.actionChronos)
+        self.menuFile.addAction(self.actionBookmarks)
         self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -62,6 +65,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.tabWidget, QtCore.SIGNAL(_fromUtf8("tabCloseRequested(int)")), MainWindow.tabClose)
         QtCore.QObject.connect(self.actionNew_tab, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.newTab)
         QtCore.QObject.connect(self.actionChronos, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.chrono)
+        QtCore.QObject.connect(self.actionBookmarks, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.bookmarks)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -69,4 +73,5 @@ class Ui_MainWindow(object):
         self.menuFile.setTitle(_translate("MainWindow", "file", None))
         self.actionNew_tab.setText(_translate("MainWindow", "new tab", None))
         self.actionChronos.setText(_translate("MainWindow", "chronos", None))
+        self.actionBookmarks.setText(_translate("MainWindow", "bookmarks", None))
 
