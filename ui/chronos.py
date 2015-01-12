@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'chronos.ui'
 #
-# Created: Fri Jan  9 16:32:24 2015
+# Created: Sun Jan 11 21:27:31 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -34,9 +34,6 @@ class Ui_chronos(object):
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.pushButton = QtGui.QPushButton(chronos)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.horizontalLayout.addWidget(self.pushButton)
         self.pushButton_2 = QtGui.QPushButton(chronos)
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.horizontalLayout.addWidget(self.pushButton_2)
@@ -46,6 +43,7 @@ class Ui_chronos(object):
         self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.tableWidget.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setDragDropOverwriteMode(False)
+        self.tableWidget.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setWordWrap(False)
@@ -63,12 +61,11 @@ class Ui_chronos(object):
 
         self.retranslateUi(chronos)
         QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), chronos.chrono_clearHistory)
-        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), chronos.chrono_open)
+        QtCore.QObject.connect(self.tableWidget, QtCore.SIGNAL(_fromUtf8("cellDoubleClicked(int,int)")), chronos.chrono_open)
         QtCore.QMetaObject.connectSlotsByName(chronos)
 
     def retranslateUi(self, chronos):
         chronos.setWindowTitle(_translate("chronos", "Chronos", None))
-        self.pushButton.setText(_translate("chronos", "Open", None))
         self.pushButton_2.setText(_translate("chronos", "clear history", None))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("chronos", "ico", None))

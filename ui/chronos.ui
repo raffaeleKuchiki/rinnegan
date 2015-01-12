@@ -21,13 +21,6 @@
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Open</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
         <string>clear history</string>
@@ -49,6 +42,9 @@
      </property>
      <property name="dragDropOverwriteMode">
       <bool>false</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="showGrid">
       <bool>true</bool>
@@ -101,18 +97,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
+   <sender>tableWidget</sender>
+   <signal>cellDoubleClicked(int,int)</signal>
    <receiver>chronos</receiver>
    <slot>chrono_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>281</y>
+     <x>380</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
-     <x>2</x>
-     <y>264</y>
+     <x>397</x>
+     <y>107</y>
     </hint>
    </hints>
   </connection>

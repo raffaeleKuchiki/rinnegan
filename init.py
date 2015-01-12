@@ -11,5 +11,6 @@ if __name__=="__main__":
 		else:
 			raise
 	app = QApplication(sys.argv)
+	app.setApplicationName("Rinnegan")
 	r = Browser()
 	sys.exit(app.exec_())
