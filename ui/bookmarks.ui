@@ -20,6 +20,9 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QTableWidget" name="tableWidget">
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
@@ -76,8 +79,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tableWidget</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>bookmarks</receiver>
+   <slot>bookmarks_contextMenu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>227</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>bookmarks_open()</slot>
+  <slot>bookmarks_contextMenu()</slot>
  </slots>
 </ui>

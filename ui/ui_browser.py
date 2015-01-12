@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'window.ui'
+# Form implementation generated from reading ui file 'browser.ui'
 #
-# Created: Sun Jan 11 21:27:31 2015
+# Created: Mon Jan 12 20:59:35 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -23,14 +23,14 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(800, 632)
+class Ui_browser(object):
+    def setupUi(self, browser):
+        browser.setObjectName(_fromUtf8("browser"))
+        browser.resize(800, 632)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("ico/rinnegan.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
-        self.centralwidget = QtGui.QWidget(MainWindow)
+        browser.setWindowIcon(icon)
+        self.centralwidget = QtGui.QWidget(browser)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
@@ -42,36 +42,36 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabsClosable(False)
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menuBar = QtGui.QMenuBar(MainWindow)
+        browser.setCentralWidget(self.centralwidget)
+        self.menuBar = QtGui.QMenuBar(browser)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menuBar.setObjectName(_fromUtf8("menuBar"))
         self.menuFile = QtGui.QMenu(self.menuBar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
-        MainWindow.setMenuBar(self.menuBar)
-        self.actionNew_tab = QtGui.QAction(MainWindow)
+        browser.setMenuBar(self.menuBar)
+        self.actionNew_tab = QtGui.QAction(browser)
         self.actionNew_tab.setObjectName(_fromUtf8("actionNew_tab"))
-        self.actionChronos = QtGui.QAction(MainWindow)
+        self.actionChronos = QtGui.QAction(browser)
         self.actionChronos.setObjectName(_fromUtf8("actionChronos"))
-        self.actionBookmarks = QtGui.QAction(MainWindow)
+        self.actionBookmarks = QtGui.QAction(browser)
         self.actionBookmarks.setObjectName(_fromUtf8("actionBookmarks"))
         self.menuFile.addAction(self.actionNew_tab)
         self.menuFile.addAction(self.actionChronos)
         self.menuFile.addAction(self.actionBookmarks)
         self.menuBar.addAction(self.menuFile.menuAction())
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(browser)
         self.tabWidget.setCurrentIndex(-1)
-        QtCore.QObject.connect(self.tabWidget, QtCore.SIGNAL(_fromUtf8("tabCloseRequested(int)")), MainWindow.tabClose)
-        QtCore.QObject.connect(self.actionNew_tab, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.newTab)
-        QtCore.QObject.connect(self.actionChronos, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.chrono)
-        QtCore.QObject.connect(self.actionBookmarks, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.bookmarks)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QObject.connect(self.tabWidget, QtCore.SIGNAL(_fromUtf8("tabCloseRequested(int)")), browser.tabClose)
+        QtCore.QObject.connect(self.actionNew_tab, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.newTab)
+        QtCore.QObject.connect(self.actionChronos, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.chrono)
+        QtCore.QObject.connect(self.actionBookmarks, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.bookmarks)
+        QtCore.QMetaObject.connectSlotsByName(browser)
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "Rinnegan", None))
-        self.menuFile.setTitle(_translate("MainWindow", "file", None))
-        self.actionNew_tab.setText(_translate("MainWindow", "new tab", None))
-        self.actionChronos.setText(_translate("MainWindow", "chronos", None))
-        self.actionBookmarks.setText(_translate("MainWindow", "bookmarks", None))
+    def retranslateUi(self, browser):
+        browser.setWindowTitle(_translate("browser", "Rinnegan", None))
+        self.menuFile.setTitle(_translate("browser", "file", None))
+        self.actionNew_tab.setText(_translate("browser", "new tab", None))
+        self.actionChronos.setText(_translate("browser", "chronos", None))
+        self.actionBookmarks.setText(_translate("browser", "bookmarks", None))
 

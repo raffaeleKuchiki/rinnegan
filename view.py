@@ -4,7 +4,7 @@ from PyQt4.QtWebKit import *
 from PyQt4.QtNetwork import *
 import sys
 sys.path.append('ui/')
-from page import * 
+from ui_view import * 
 from sqlite_lib import *
 
 #cookie
@@ -12,7 +12,7 @@ cookie = QNetworkCookieJar()
 mgr = QNetworkAccessManager()
 mgr.setCookieJar(cookie)
 
-class View(QWidget,Ui_page):
+class View(QWidget,Ui_view):
 	def __init__(self,parent,url):
 		super(View,self).__init__()
 		#to call tab window function
@@ -32,11 +32,6 @@ class View(QWidget,Ui_page):
 		#for icon connection
 		QWebSettings.setIconDatabasePath('data/')
 		QWebSettings.globalSettings().setLocalStoragePath('data/')
-		self.data = Database("data/bookmarks.db")
-		try:
-			self.data.db_iniection("CREATE TABLE bookmarks (name text, url text)")
-		except:
-			print "already exist"
 		if url=="":
 			self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
 		else:
@@ -76,5 +71,11 @@ class View(QWidget,Ui_page):
 		self.qwebview.setUrl(QUrl(url))
 		
 	def viewBookmarks(self):
-		url = self.qwebview.url()
-		self.data.db_iniection("INSERT INTO bookmarks VALUES ('name','"+str(url.toString())+"')")
+		name, ok = QInputDialog.getText(QInputDialog(),'Create Bookmark','Enter Bookmark Name: ',QLineEdit.Normal,'name')
+		if ok==True:
+			url = self.qwebview.url()
+			ctrl = self.parent.book.db_select("SELECT id FROM bookmarks WHERE url='"+str(url.toString())+"'")
+			if len(ctrl)==0:
+				self.parent.book.db_iniection("INSERT INTO bookmarks VALUES (null,'"+str(name)+"','"+str(url.toString())+"')")
+			else:
+				print "exist!"

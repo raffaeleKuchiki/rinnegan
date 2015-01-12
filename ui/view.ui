@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>page</class>
- <widget class="QWidget" name="page">
+ <class>view</class>
+ <widget class="QWidget" name="view">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -137,7 +137,7 @@
   <connection>
    <sender>qwebview</sender>
    <signal>loadProgress(int)</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewLoading()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -153,7 +153,7 @@
   <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewReload()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -169,7 +169,7 @@
   <connection>
    <sender>pushButton_2</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewBack()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -185,7 +185,7 @@
   <connection>
    <sender>pushButton_3</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewForward()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -201,7 +201,7 @@
   <connection>
    <sender>pushButton_4</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewStop()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -217,7 +217,7 @@
   <connection>
    <sender>pushButton_5</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewHome()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -233,7 +233,7 @@
   <connection>
    <sender>qwebview</sender>
    <signal>titleChanged(QString)</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewTitle()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -249,7 +249,7 @@
   <connection>
    <sender>qwebview</sender>
    <signal>iconChanged()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewIcon()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -265,7 +265,7 @@
   <connection>
    <sender>qwebview</sender>
    <signal>urlChanged(QUrl)</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewUrl()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -281,7 +281,7 @@
   <connection>
    <sender>lineEdit</sender>
    <signal>returnPressed()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewGo()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -297,7 +297,7 @@
   <connection>
    <sender>pushButton_6</sender>
    <signal>clicked()</signal>
-   <receiver>page</receiver>
+   <receiver>view</receiver>
    <slot>viewBookmarks()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -18,14 +18,34 @@ class Bookmarks(QWidget,Ui_bookmarks):
 		self.parent.newTab(url.text())
 		
 	def bookmarks_query(self):
-		self.data = Database("data/bookmarks.db")
-		echo = self.data.db_select("SELECT * FROM bookmarks")
-		print len(echo)
+		echo = self.parent.book.db_select("SELECT * FROM bookmarks")
 		i=0
 		while i<len(echo):
-			name = str(echo[i][0])
-			url = str(echo[i][1])
+			name = str(echo[i][1])
+			url = str(echo[i][2])
 			self.tableWidget.setRowCount(self.tableWidget.rowCount()+1)
 			self.tableWidget.setItem(i,0,QTableWidgetItem(name))
 			self.tableWidget.setItem(i,1,QTableWidgetItem(url))
 			i+=1
+	
+	def bookmarks_contextMenu(self,point):
+		menu = QtGui.QMenu()
+		action1 = menu.addAction("Delete")
+		action2 = menu.addAction("Rename")
+		QObject.connect(action1,SIGNAL("triggered()"),self.bookmarks_delete)
+		QObject.connect(action2,SIGNAL("triggered()"),self.bookmarks_rename)
+		menu.exec_(self.mapToGlobal(point))
+	
+	def bookmarks_delete(self):
+		index = self.tableWidget.currentRow()
+		url = self.tableWidget.item(index,1).text()
+		count = self.tableWidget.rowCount()
+		i=count-1
+		while 0 <= i:
+			if url==self.tableWidget.item(i,1).text():
+				self.tableWidget.removeRow(i)
+			i -= 1
+		self.parent.book.db_iniection("DELETE FROM bookmarks WHERE url='"+str(url)+"'")
+	
+	def bookmarks_rename(self):
+		index = self.tableWidget.currentRow()

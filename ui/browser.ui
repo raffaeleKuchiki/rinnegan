@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>browser</class>
+ <widget class="QMainWindow" name="browser">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -83,7 +83,7 @@
   <connection>
    <sender>tabWidget</sender>
    <signal>tabCloseRequested(int)</signal>
-   <receiver>MainWindow</receiver>
+   <receiver>browser</receiver>
    <slot>tabClose()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -99,7 +99,7 @@
   <connection>
    <sender>actionNew_tab</sender>
    <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
+   <receiver>browser</receiver>
    <slot>newTab()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -115,7 +115,7 @@
   <connection>
    <sender>actionChronos</sender>
    <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
+   <receiver>browser</receiver>
    <slot>chrono()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -131,7 +131,7 @@
   <connection>
    <sender>actionBookmarks</sender>
    <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
+   <receiver>browser</receiver>
    <slot>bookmarks()</slot>
    <hints>
     <hint type="sourcelabel">

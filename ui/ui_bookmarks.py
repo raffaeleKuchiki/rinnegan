@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'bookmarks.ui'
 #
-# Created: Sun Jan 11 21:27:31 2015
+# Created: Mon Jan 12 20:59:36 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,6 +33,7 @@ class Ui_bookmarks(object):
         self.gridLayout = QtGui.QGridLayout(bookmarks)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.tableWidget = QtGui.QTableWidget(bookmarks)
+        self.tableWidget.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         self.tableWidget.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setTabKeyNavigation(False)
         self.tableWidget.setProperty("showDropIndicator", False)
@@ -51,6 +52,7 @@ class Ui_bookmarks(object):
 
         self.retranslateUi(bookmarks)
         QtCore.QObject.connect(self.tableWidget, QtCore.SIGNAL(_fromUtf8("cellDoubleClicked(int,int)")), bookmarks.bookmarks_open)
+        QtCore.QObject.connect(self.tableWidget, QtCore.SIGNAL(_fromUtf8("customContextMenuRequested(QPoint)")), bookmarks.bookmarks_contextMenu)
         QtCore.QMetaObject.connectSlotsByName(bookmarks)
 
     def retranslateUi(self, bookmarks):

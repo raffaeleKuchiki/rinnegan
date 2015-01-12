@@ -2,18 +2,25 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import sys
 sys.path.append('ui/')
-from window import *
+from ui_browser import *
 from view import *
 from chrono import *
 from bookmarks import *
+from sqlite_lib import *
 
-class Browser(QMainWindow,Ui_MainWindow):
+class Browser(QMainWindow,Ui_browser):
 	def __init__(self):
 		super(Browser, self).__init__()
 		self.setupUi(self)
 		self.newTab()
 		self.show()
 		self.tabWidget.setTabsClosable(False)
+		self.chro = Database("data/WebpageIcons.db")
+		self.book = Database("data/bookmarks.db")
+		try:
+			self.book.db_iniection("CREATE TABLE bookmarks (id integer PRIMARY KEY, name text, url text)")
+		except:
+			print "already exist"
     
 	def newTab(self,url=""):
 		self.tabWidget.addTab(View(self,url),QString(""))
