@@ -5,6 +5,7 @@ from PyQt4.QtNetwork import *
 import sys
 sys.path.append('ui/')
 from page import * 
+from sqlite_lib import *
 
 #cookie
 cookie = QNetworkCookieJar()
@@ -27,9 +28,15 @@ class View(QWidget,Ui_page):
 		QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
 		#js
 		QWebSettings.globalSettings().setAttribute(QWebSettings.JavascriptEnabled, True)
+		QWebSettings.globalSettings().setAttribute(QWebSettings.JavascriptCanOpenWindows, True)
 		#for icon connection
 		QWebSettings.setIconDatabasePath('data/')
 		QWebSettings.globalSettings().setLocalStoragePath('data/')
+		self.data = Database("data/bookmarks.db")
+		try:
+			self.data.db_iniection("CREATE TABLE bookmarks (name text, url text)")
+		except:
+			print "already exist"
 		if url=="":
 			self.qwebview.setUrl(QUrl('http://start.ubuntu.com'))
 		else:
@@ -67,3 +74,7 @@ class View(QWidget,Ui_page):
 	def viewGo(self):
 		url = self.lineEdit.text()
 		self.qwebview.setUrl(QUrl(url))
+		
+	def viewBookmarks(self):
+		url = self.qwebview.url()
+		self.data.db_iniection("INSERT INTO bookmarks VALUES ('name','"+str(url.toString())+"')")

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'page.ui'
 #
-# Created: Thu Dec 18 19:38:09 2014
+# Created: Sun Jan 11 21:27:31 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -61,17 +61,25 @@ class Ui_page(object):
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName(_fromUtf8("progressBar"))
         self.horizontalLayout.addWidget(self.progressBar)
-        self.pushButton_4 = QtGui.QPushButton(page)
+        self.pushButton_6 = QtGui.QPushButton(page)
+        self.pushButton_6.setText(_fromUtf8(""))
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/stop.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_4.setIcon(icon3)
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/bookmarks.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_6.setIcon(icon3)
+        self.pushButton_6.setFlat(True)
+        self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
+        self.horizontalLayout.addWidget(self.pushButton_6)
+        self.pushButton_4 = QtGui.QPushButton(page)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8("ico/stop.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_4.setIcon(icon4)
         self.pushButton_4.setFlat(True)
         self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
         self.horizontalLayout.addWidget(self.pushButton_4)
         self.pushButton_5 = QtGui.QPushButton(page)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_fromUtf8("ico/home.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_5.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(_fromUtf8("ico/home.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_5.setIcon(icon5)
         self.pushButton_5.setFlat(True)
         self.pushButton_5.setObjectName(_fromUtf8("pushButton_5"))
         self.horizontalLayout.addWidget(self.pushButton_5)
@@ -95,6 +103,7 @@ class Ui_page(object):
         QtCore.QObject.connect(self.qwebview, QtCore.SIGNAL(_fromUtf8("iconChanged()")), page.viewIcon)
         QtCore.QObject.connect(self.qwebview, QtCore.SIGNAL(_fromUtf8("urlChanged(QUrl)")), page.viewUrl)
         QtCore.QObject.connect(self.lineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), page.viewGo)
+        QtCore.QObject.connect(self.pushButton_6, QtCore.SIGNAL(_fromUtf8("clicked()")), page.viewBookmarks)
         QtCore.QMetaObject.connectSlotsByName(page)
 
     def retranslateUi(self, page):

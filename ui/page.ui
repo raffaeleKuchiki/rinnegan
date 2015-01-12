@@ -45,6 +45,9 @@
          <property name="enabled">
           <bool>true</bool>
          </property>
+         <property name="text">
+          <string/>
+         </property>
          <property name="icon">
           <iconset>
            <normaloff>ico/loading.png</normaloff>ico/loading.png</iconset>
@@ -64,6 +67,20 @@
         <widget class="QProgressBar" name="progressBar">
          <property name="value">
           <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>ico/bookmarks.png</normaloff>ico/bookmarks.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -277,6 +294,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>page</receiver>
+   <slot>viewBookmarks()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>474</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>598</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>viewLoading()</slot>
@@ -289,5 +322,6 @@
   <slot>viewIcon()</slot>
   <slot>viewUrl()</slot>
   <slot>viewGo()</slot>
+  <slot>viewBookmarks()</slot>
  </slots>
 </ui>
