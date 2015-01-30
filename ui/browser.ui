@@ -59,6 +59,8 @@
     <addaction name="actionNew_tab"/>
     <addaction name="actionChronos"/>
     <addaction name="actionBookmarks"/>
+    <addaction name="separator"/>
+    <addaction name="actionSetting"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -87,6 +89,11 @@
    </property>
    <property name="text">
     <string>bookmarks</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="text">
+    <string>setting</string>
    </property>
   </action>
  </widget>
@@ -156,6 +163,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionSetting</sender>
+   <signal>triggered()</signal>
+   <receiver>browser</receiver>
+   <slot>setting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newTab()</slot>
@@ -163,5 +186,6 @@
   <slot>tabSelection()</slot>
   <slot>chrono()</slot>
   <slot>bookmarks()</slot>
+  <slot>setting()</slot>
  </slots>
 </ui>

@@ -1,24 +1,28 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-import sys
+import sys, os
 sys.path.append('ui/')
+from lxml import etree
 from ui_browser import *
 from view import *
 from chrono import *
 from bookmarks import *
+from setting import *
 from sqlite_lib import *
 
 class Browser(QMainWindow,Ui_browser):
 	def __init__(self):
 		super(Browser, self).__init__()
 		self.setupUi(self)
-		self.newTab()
 		self.show()
 		self.tabWidget.setTabsClosable(False)
 		self.data = Database("data/browser_data.db")
 		
 		self.data.db_iniection("CREATE TABLE IF NOT EXISTS bookmarks (id integer PRIMARY KEY, name text, url text)")
 		self.data.db_iniection("CREATE TABLE IF NOT EXISTS chronos (id integer PRIMARY KEY, ico text, url text, date datetime default CURRENT_TIMESTAMP)")
+		self.xml_home_file()
+		
+		self.newTab()
     
 	def newTab(self,url=""):
 		self.tabWidget.addTab(View(self,url),QString(""))
@@ -56,3 +60,24 @@ class Browser(QMainWindow,Ui_browser):
 		self.b = Bookmarks(self)
 		self.b.show()
 		self.b.isVisible()
+		
+	def setting(self):
+		self.s = Setting(self)
+		self.s.show()
+		self.s.isVisible()
+	
+	def xml_home_file(self):
+		test = os.path.exists('data/home.xml')
+		print test
+		if not test:
+			root = etree.Element('data')
+			subroot = etree.Element('home')
+			child = etree.Element('url')
+			child.text = "http://start.ubuntu.com"
+			subroot.append(child)
+			root.append(subroot)
+			
+			s = etree.tostring(root,pretty_print=True)
+			output = open('data/home.xml','w')
+			output.write(s)
+			output.close()

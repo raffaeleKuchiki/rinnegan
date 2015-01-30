@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'browser.ui'
 #
-# Created: Fri Jan 30 13:49:29 2015
+# Created: Fri Jan 30 18:13:37 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -64,9 +64,13 @@ class Ui_browser(object):
         icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/bookmarks.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionBookmarks.setIcon(icon3)
         self.actionBookmarks.setObjectName(_fromUtf8("actionBookmarks"))
+        self.actionSetting = QtGui.QAction(browser)
+        self.actionSetting.setObjectName(_fromUtf8("actionSetting"))
         self.menuFile.addAction(self.actionNew_tab)
         self.menuFile.addAction(self.actionChronos)
         self.menuFile.addAction(self.actionBookmarks)
+        self.menuFile.addSeparator()
+        self.menuFile.addAction(self.actionSetting)
         self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(browser)
@@ -75,6 +79,7 @@ class Ui_browser(object):
         QtCore.QObject.connect(self.actionNew_tab, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.newTab)
         QtCore.QObject.connect(self.actionChronos, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.chrono)
         QtCore.QObject.connect(self.actionBookmarks, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.bookmarks)
+        QtCore.QObject.connect(self.actionSetting, QtCore.SIGNAL(_fromUtf8("triggered()")), browser.setting)
         QtCore.QMetaObject.connectSlotsByName(browser)
 
     def retranslateUi(self, browser):
@@ -83,4 +88,5 @@ class Ui_browser(object):
         self.actionNew_tab.setText(_translate("browser", "new tab", None))
         self.actionChronos.setText(_translate("browser", "chronos", None))
         self.actionBookmarks.setText(_translate("browser", "bookmarks", None))
+        self.actionSetting.setText(_translate("browser", "setting", None))
 
