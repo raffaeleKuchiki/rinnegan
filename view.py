@@ -23,7 +23,7 @@ class View(QWidget,Ui_view):
 		#cookies
 		page = self.qwebview.page()
 		page.setNetworkAccessManager(mgr)
-		print "cookie gestion enabled"
+		print ("cookie gestion enabled")
 		#plugin
 		QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
 		#js
@@ -65,6 +65,7 @@ class View(QWidget,Ui_view):
     
 	def viewUrl(self,url):
 		self.lineEdit.setText(url.toString())
+		self.parent.data.db_iniection("INSERT INTO chronos(id,ico,url) VALUES (null,'ciao','"+str(url.toString())+"')")
    
 	def viewGo(self):
 		url = self.lineEdit.text()
@@ -74,10 +75,10 @@ class View(QWidget,Ui_view):
 		url = self.qwebview.url()
 		ctrl = self.parent.book.db_select("SELECT id FROM bookmarks WHERE url='"+str(url.toString())+"'")
 		if len(ctrl)==0:
-			name, ok = QInputDialog.getText(QInputDialog(),'Create Bookmark','Enter Bookmark Name: ',QLineEdit.Normal,'name')
+			name, ok = QInputDialog.getText(self.parent,'Create Bookmark','Enter Bookmark Name: ',QLineEdit.Normal,'name')
 			if ok==True:
 				self.parent.book.db_iniection("INSERT INTO bookmarks VALUES (null,'"+str(name)+"','"+str(url.toString())+"')")
 		else:
 			ret = QMessageBox.warning(self,'Warning','This Bookmark already exist!',QMessageBox.Cancel,QMessageBox.Cancel)
-			print "exist!"
+			print ("exist!")
 	

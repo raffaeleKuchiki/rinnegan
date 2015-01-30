@@ -15,12 +15,12 @@ class Browser(QMainWindow,Ui_browser):
 		self.newTab()
 		self.show()
 		self.tabWidget.setTabsClosable(False)
-		self.chro = Database("data/WebpageIcons.db")
-		self.book = Database("data/bookmarks.db")
+		self.data = Database("data/browser_data.db")
 		try:
-			self.book.db_iniection("CREATE TABLE bookmarks (id integer PRIMARY KEY, name text, url text)")
+			self.data.db_iniection("CREATE TABLE bookmarks (id integer PRIMARY KEY, name text, url text)")
+			self.data.db_iniection("CREATE TABLE chronos (id integer PRIMARY KEY, ico text, url text, date datetime default CURRENT_TIMESTAMP)")
 		except:
-			print "already exist"
+			print ("already exist")
     
 	def newTab(self,url=""):
 		self.tabWidget.addTab(View(self,url),QString(""))

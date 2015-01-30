@@ -13,23 +13,49 @@ class Chrono(QWidget,Ui_chronos):
 		self.chrono_query()
 	
 	def chrono_query(self):
-		echo = self.parent.chro.db_select("SELECT IconInfo.url, PageURL.url FROM PageURL JOIN IconInfo ON PageURL.iconID=IconInfo.iconID")
+		echo = self.parent.data.db_select("SELECT ico, url, date FROM chronos ORDER BY datetime(date)")
 		i=0
 		while i<len(echo):
-			text = str(echo[i][1])
 			self.tableWidget.setRowCount(self.tableWidget.rowCount()+1)
-			pic = QIcon(str(echo[i][0]))
-			prova = QTableWidgetItem()
-			prova.setIcon(pic)
-			self.tableWidget.setItem(i,0,prova)
-			self.tableWidget.setItem(i,1,QTableWidgetItem(text))
+			ico = str(echo[i][0])
+			url = str(echo[i][1])
+			date = str(echo[i][2])
+			#prova = QTableWidgetItem()
+			#prova.setIcon(pic)
+			self.tableWidget.setItem(i,0,QTableWidgetItem(ico))
+			self.tableWidget.setItem(i,1,QTableWidgetItem(url))
+			self.tableWidget.setItem(i,2,QTableWidgetItem(date))
 			i += 1
 	
+	def chrono_contextMenu(self,point):
+		menu = QtGui.QMenu()
+		action1 = menu.addAction(QIcon("ico/delete.png"),"Delete All Same Url")
+		action2 = menu.addAction(QIcon("ico/clean.png"),"Clean History")
+		QObject.connect(action1,SIGNAL("triggered()"),self.chrono_delete)
+		QObject.connect(action2,SIGNAL("triggered()"),self.chrono_clearHistory)
+		menu.exec_(self.mapToGlobal(point))
+	
+	def chrono_delete(self):
+		index = self.tableWidget.currentRow()
+		url = self.tableWidget.item(index,1).text()
+		self.parent.data.db_iniection("DELETE FROM chronos WHERE url='"+str(url)+"'")
+		self.chrono_clean_view()
+		self.chrono_query()
+	
 	def chrono_clearHistory(self):
-		self.parent.chro.db_iniection("DELETE FROM PageURL")
-		print "history cleaned"
-		self.close()
+		self.parent.data.db_iniection("DELETE FROM chronos")
+		print ("history cleaned")
+		self.chrono_clean_view()
+		self.chrono_query()
+	
+	def chrono_clean_view(self):
+		count = self.tableWidget.rowCount()
+		i=count-1
+		while 0<=i:
+			self.tableWidget.removeRow(i)
+			i -= 1
 	
 	def chrono_open(self,row,column):
 		url = self.tableWidget.item(row,1)
 		self.parent.newTab(url.text())
+	
