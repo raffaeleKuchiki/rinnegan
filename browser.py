@@ -17,8 +17,8 @@ class Browser(QMainWindow,Ui_browser):
 		self.tabWidget.setTabsClosable(False)
 		self.data = Database("data/browser_data.db")
 		
-		self.data.db_iniection("CREATE TABLE IF NOT EXIST bookmarks (id integer PRIMARY KEY, name text, url text)")
-		self.data.db_iniection("CREATE TABLE IF NOT EXIST chronos (id integer PRIMARY KEY, ico text, url text, date datetime default CURRENT_TIMESTAMP)")
+		self.data.db_iniection("CREATE TABLE IF NOT EXISTS bookmarks (id integer PRIMARY KEY, name text, url text)")
+		self.data.db_iniection("CREATE TABLE IF NOT EXISTS chronos (id integer PRIMARY KEY, ico text, url text, date datetime default CURRENT_TIMESTAMP)")
     
 	def newTab(self,url=""):
 		self.tabWidget.addTab(View(self,url),QString(""))
