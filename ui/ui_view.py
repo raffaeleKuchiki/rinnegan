@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view.ui'
 #
-# Created: Mon Jan 12 20:59:36 2015
+# Created: Fri Jan 30 13:49:29 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -65,7 +65,7 @@ class Ui_view(object):
         self.pushButton_6 = QtGui.QPushButton(view)
         self.pushButton_6.setText(_fromUtf8(""))
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/bookmarks.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/add_bookmarks.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_6.setIcon(icon3)
         self.pushButton_6.setFlat(True)
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))

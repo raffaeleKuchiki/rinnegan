@@ -77,7 +77,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>ico/bookmarks.png</normaloff>ico/bookmarks.png</iconset>
+           <normaloff>ico/add_bookmarks.png</normaloff>ico/add_bookmarks.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>

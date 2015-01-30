@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'browser.ui'
 #
-# Created: Mon Jan 12 20:59:35 2015
+# Created: Fri Jan 30 13:49:29 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -50,10 +50,19 @@ class Ui_browser(object):
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
         browser.setMenuBar(self.menuBar)
         self.actionNew_tab = QtGui.QAction(browser)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("ico/plus.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionNew_tab.setIcon(icon1)
         self.actionNew_tab.setObjectName(_fromUtf8("actionNew_tab"))
         self.actionChronos = QtGui.QAction(browser)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("ico/chrono.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionChronos.setIcon(icon2)
         self.actionChronos.setObjectName(_fromUtf8("actionChronos"))
         self.actionBookmarks = QtGui.QAction(browser)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8("ico/bookmarks.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionBookmarks.setIcon(icon3)
         self.actionBookmarks.setObjectName(_fromUtf8("actionBookmarks"))
         self.menuFile.addAction(self.actionNew_tab)
         self.menuFile.addAction(self.actionChronos)

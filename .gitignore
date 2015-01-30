@@ -3,3 +3,4 @@ data/
 ico/.directory
 ui/.directory
 ui/ico
+*.pyc

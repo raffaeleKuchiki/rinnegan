@@ -63,16 +63,28 @@
    <addaction name="menuFile"/>
   </widget>
   <action name="actionNew_tab">
+   <property name="icon">
+    <iconset>
+     <normaloff>ico/plus.png</normaloff>ico/plus.png</iconset>
+   </property>
    <property name="text">
     <string>new tab</string>
    </property>
   </action>
   <action name="actionChronos">
+   <property name="icon">
+    <iconset>
+     <normaloff>ico/chrono.png</normaloff>ico/chrono.png</iconset>
+   </property>
    <property name="text">
     <string>chronos</string>
    </property>
   </action>
   <action name="actionBookmarks">
+   <property name="icon">
+    <iconset>
+     <normaloff>ico/bookmarks.png</normaloff>ico/bookmarks.png</iconset>
+   </property>
    <property name="text">
     <string>bookmarks</string>
    </property>

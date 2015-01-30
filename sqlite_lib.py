@@ -8,10 +8,10 @@ class Database():
 		self.db_fileName()
 		try:
 			self.connection = sqlite3.connect(self.name)
-			print "connection created"
+			print ("connection created")
 			self.db_cursor()
 		except:
-			print "connection failed"
+			print ("connection failed")
     
 	def db_fileName(self):
 		count = len(self.name)
@@ -29,14 +29,14 @@ class Database():
 	def db_cursor(self):
 		try:
 			self.cursor = self.connection.cursor()
-			print "cursor created"
+			print ("cursor created")
 		except:
-			print "cursor failed"
+			print ("cursor failed")
 
 	def db_iniection(self,query):
 		self.cursor.execute(query)
 		self.connection.commit()
-		print "iniection number " , self.iniection_count
+		print ("iniection number " , self.iniection_count)
 		self.iniection_count += 1
     
 	def db_select(self,query):
@@ -46,4 +46,4 @@ class Database():
     
 	def db_close(self):
 		self.connection.close()
-		print "connection closed"
+		print ("connection closed")
