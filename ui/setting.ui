@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>setting</class>
+ <widget class="QWidget" name="setting">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>476</width>
+    <height>328</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Setting</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>ico/rinnegan.png</normaloff>ico/rinnegan.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Home preference</string>
+      </attribute>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>421</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>40</y>
+         <width>94</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>203</x>
+         <y>40</y>
+         <width>111</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Url from tab</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>setting</receiver>
+   <slot>setting_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>setting</receiver>
+   <slot>setting_url_from_tab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>setting_url_from_tab()</slot>
+  <slot>setting_save()</slot>
+ </slots>
+</ui>
