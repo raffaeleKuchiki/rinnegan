@@ -73,11 +73,11 @@ class View(QWidget,Ui_view):
 		
 	def viewBookmarks(self):
 		url = self.qwebview.url()
-		ctrl = self.parent.book.db_select("SELECT id FROM bookmarks WHERE url='"+str(url.toString())+"'")
+		ctrl = self.parent.data.db_select("SELECT id FROM bookmarks WHERE url='"+str(url.toString())+"'")
 		if len(ctrl)==0:
 			name, ok = QInputDialog.getText(self.parent,'Create Bookmark','Enter Bookmark Name: ',QLineEdit.Normal,'name')
 			if ok==True:
-				self.parent.book.db_iniection("INSERT INTO bookmarks VALUES (null,'"+str(name)+"','"+str(url.toString())+"')")
+				self.parent.data.db_iniection("INSERT INTO bookmarks VALUES (null,'"+str(name)+"','"+str(url.toString())+"')")
 		else:
 			ret = QMessageBox.warning(self,'Warning','This Bookmark already exist!',QMessageBox.Cancel,QMessageBox.Cancel)
 			print ("exist!")
