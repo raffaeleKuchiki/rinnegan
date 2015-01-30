@@ -18,7 +18,7 @@ class Bookmarks(QWidget,Ui_bookmarks):
 		self.parent.newTab(url.text())
 		
 	def bookmarks_query(self):
-		echo = self.parent.date.db_select("SELECT * FROM bookmarks")
+		echo = self.parent.data.db_select("SELECT * FROM bookmarks")
 		i=0
 		while i<len(echo):
 			name = str(echo[i][1])
@@ -39,7 +39,7 @@ class Bookmarks(QWidget,Ui_bookmarks):
 	def bookmarks_delete(self):
 		index = self.tableWidget.currentRow()
 		url = self.tableWidget.item(index,1).text()
-		self.parent.date.db_iniection("DELETE FROM bookmarks WHERE url='"+str(url)+"'")
+		self.parent.data.db_iniection("DELETE FROM bookmarks WHERE url='"+str(url)+"'")
 		self.bookmarks_clean_view()
 		self.bookmarks_query()
 	
@@ -49,7 +49,7 @@ class Bookmarks(QWidget,Ui_bookmarks):
 		old_name = self.tableWidget.item(index,0).text()
 		new_name, ok = QInputDialog.getText(self.parent,'Rename Bookmark','Enter Bookmark Name: ',QLineEdit.Normal,str(old_name))
 		if ok==True:
-			self.parent.date.db_iniection("UPDATE bookmarks SET name='"+str(new_name)+"' WHERE url='"+str(url)+"'")
+			self.parent.data.db_iniection("UPDATE bookmarks SET name='"+str(new_name)+"' WHERE url='"+str(url)+"'")
 		self.bookmarks_clean_view()
 		self.bookmarks_query()
 	
