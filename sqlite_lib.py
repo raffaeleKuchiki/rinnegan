@@ -13,7 +13,7 @@ class Database():
 		except:
 			print ("connection failed")
     
-	def db_fileName(self):
+	def __db_fileName(self):
 		count = len(self.name)
 		i=0
 		temp = ""
@@ -26,7 +26,7 @@ class Database():
 				self.name = temp + ".db"
 			i += 1
 
-	def db_cursor(self):
+	def __db_cursor(self):
 		try:
 			self.cursor = self.connection.cursor()
 			print ("cursor created")
