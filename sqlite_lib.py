@@ -5,11 +5,11 @@ class Database():
 	def __init__(self,name):
 		self.iniection_count=1
 		self.name = name
-		self.db_fileName()
+		self.__db_fileName()
 		try:
 			self.connection = sqlite3.connect(self.name)
 			print ("connection created")
-			self.db_cursor()
+			self.__db_cursor()
 		except:
 			print ("connection failed")
     
