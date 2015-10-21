@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'bookmarks.ui'
 #
-# Created: Fri Jan 30 18:13:38 2015
+# Created: Fri Oct  2 14:22:12 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'browser.ui'
 #
-# Created: Fri Jan 30 18:13:37 2015
+# Created: Fri Oct  2 14:22:10 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -65,6 +65,9 @@ class Ui_browser(object):
         self.actionBookmarks.setIcon(icon3)
         self.actionBookmarks.setObjectName(_fromUtf8("actionBookmarks"))
         self.actionSetting = QtGui.QAction(browser)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8("ico/settings.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionSetting.setIcon(icon4)
         self.actionSetting.setObjectName(_fromUtf8("actionSetting"))
         self.menuFile.addAction(self.actionNew_tab)
         self.menuFile.addAction(self.actionChronos)

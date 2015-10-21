@@ -2,7 +2,7 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.QtWebKit import *
 from PyQt4.QtNetwork import *
-import sys
+import sys, json
 sys.path.append('ui/')
 from xml.etree.ElementTree import *
 from ui_view import * 
@@ -16,11 +16,9 @@ mgr.setCookieJar(cookie)
 class View(QWidget,Ui_view):
 	def __init__(self,parent,url):
 		super(View,self).__init__()
-		#xml file
-		self.data = ElementTree(file = "data/home.xml")
-		home = self.data.find("home/url").text
 		#to call tab window function
 		self.parent = parent
+		self.setEnabled(True)
 		#number of tab of the current webview
 		self.index = 0
 		self.setupUi(self)
@@ -37,9 +35,14 @@ class View(QWidget,Ui_view):
 		QWebSettings.setIconDatabasePath('data/')
 		QWebSettings.globalSettings().setLocalStoragePath('data/')
 		if url=="":
-			self.qwebview.setUrl(QUrl(home))
+			self.viewHome()
 		else:
 			self.qwebview.setUrl(QUrl(url))
+
+	def wheelEvent(self, event):
+		self.x = self.x + event.delta()/120
+		self.qwebview.setZoomFactor(self.x)
+		print self.qwebview.zoomFactor()
 
 	def viewLoading(self,value):
 		self.progressBar.setValue(value)
@@ -59,7 +62,11 @@ class View(QWidget,Ui_view):
 		self.qwebview.back()
     
 	def viewHome(self):
-		home = self.data.find("home/url").text #find xml home
+		#json file
+		f = open("data/home.json")
+		data = json.load(f)
+		home = data['home']
+		print home
 		self.qwebview.setUrl(QUrl(home))
     
 	def viewTitle(self,title):

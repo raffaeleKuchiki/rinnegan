@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'chronos.ui'
 #
-# Created: Fri Jan 30 18:13:37 2015
+# Created: Fri Oct  2 14:22:11 2015
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!

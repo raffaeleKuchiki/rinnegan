@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Rinnegan Browser Web
+Comment=See what you want
+Exec=/bin/sh "/home/raffaele/Programmazione/rinnegan/rinnegan.sh"
+Icon=/home/raffaele/Programmazione/rinnegan/ico/rinnegan.png
+Categories=Application;Iternet;Python
+Version=1.0
+Type=Application
+

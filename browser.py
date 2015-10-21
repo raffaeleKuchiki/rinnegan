@@ -1,6 +1,6 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-import sys, os
+import sys, os, json
 sys.path.append('ui/')
 from lxml import etree
 from ui_browser import *
@@ -20,7 +20,8 @@ class Browser(QMainWindow,Ui_browser):
 		
 		self.data.db_iniection("CREATE TABLE IF NOT EXISTS bookmarks (id integer PRIMARY KEY, name text, url text)")
 		self.data.db_iniection("CREATE TABLE IF NOT EXISTS chronos (id integer PRIMARY KEY, ico text, url text, date datetime default CURRENT_TIMESTAMP)")
-		self.xml_home_file()
+		
+		self.json_home_file()
 		
 		self.newTab()
     
@@ -66,18 +67,10 @@ class Browser(QMainWindow,Ui_browser):
 		self.s.show()
 		self.s.isVisible()
 	
-	def xml_home_file(self):
-		test = os.path.exists('data/home.xml')
-		print test
+	def json_home_file(self):
+		test = os.path.exists('data/home.json')
 		if not test:
-			root = etree.Element('data')
-			subroot = etree.Element('home')
-			child = etree.Element('url')
-			child.text = "http://start.ubuntu.com"
-			subroot.append(child)
-			root.append(subroot)
-			
-			s = etree.tostring(root,pretty_print=True)
-			output = open('data/home.xml','w')
-			output.write(s)
+			data = {"home" : "http://start.ubuntu.com"}
+			output = open('data/home.json',"w")
+			json.dump(data,output,indent = 9)
 			output.close()

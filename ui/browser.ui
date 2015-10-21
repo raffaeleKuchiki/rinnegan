@@ -92,6 +92,10 @@
    </property>
   </action>
   <action name="actionSetting">
+   <property name="icon">
+    <iconset>
+     <normaloff>ico/settings.png</normaloff>ico/settings.png</iconset>
+   </property>
    <property name="text">
     <string>setting</string>
    </property>
