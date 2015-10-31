@@ -2,7 +2,6 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import sys, os, json
 sys.path.append('ui/')
-from lxml import etree
 from ui_browser import *
 from view import *
 from chrono import *
@@ -71,6 +70,7 @@ class Browser(QMainWindow,Ui_browser):
 		test = os.path.exists('data/home.json')
 		if not test:
 			data = {"home" : "http://start.ubuntu.com"}
+			
 			output = open('data/home.json',"w")
 			json.dump(data,output,indent = 9)
 			output.close()

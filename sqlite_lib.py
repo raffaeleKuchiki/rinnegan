@@ -36,7 +36,6 @@ class Database():
 	def db_iniection(self,query):
 		self.cursor.execute(query)
 		self.connection.commit()
-		print("iniection number " , self.iniection_count)
 		self.iniection_count += 1
     
 	def db_select(self,query):

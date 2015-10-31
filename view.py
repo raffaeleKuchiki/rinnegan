@@ -4,7 +4,6 @@ from PyQt4.QtWebKit import *
 from PyQt4.QtNetwork import *
 import sys, json
 sys.path.append('ui/')
-from xml.etree.ElementTree import *
 from ui_view import * 
 from sqlite_lib import *
 
@@ -25,7 +24,6 @@ class View(QWidget,Ui_view):
 		#cookies
 		page = self.qwebview.page()
 		page.setNetworkAccessManager(mgr)
-		print ("cookie gestion enabled")
 		#plugin
 		QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
 		#js
@@ -63,11 +61,11 @@ class View(QWidget,Ui_view):
     
 	def viewHome(self):
 		#json file
-		f = open("data/home.json")
+		f = open('data/home.json',"r")
 		data = json.load(f)
-		home = data['home']
-		print home
-		self.qwebview.setUrl(QUrl(home))
+		
+		self.qwebview.setUrl(QUrl(data["home"]))
+		f.close()
     
 	def viewTitle(self,title):
 		self.parent.tabTitle(title,self.index)
